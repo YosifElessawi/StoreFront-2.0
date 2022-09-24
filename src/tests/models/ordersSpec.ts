@@ -1,4 +1,4 @@
-/*import { Order, OrderStore } from '../../models/order'
+import { Order, OrderStore } from '../../models/order'
 import Client from '../../database'
 const store = new OrderStore()
 
@@ -23,7 +23,7 @@ describe('Test CRUD methods',() => {
     })
     describe('Methods logic test',() => {
         const order : Order = {
-            user_id: BigInt(1),
+            user_id: '1',
             status: 'test'
         } 
         beforeAll(async () => {
@@ -39,12 +39,12 @@ describe('Test CRUD methods',() => {
 
         it('Should create new Order', async () => {
             const newOrder : Order = await store.create({
-                user_id: BigInt(2),
+                user_id: '1',
                 status: 'test2'
             })
             expect(newOrder).toEqual({
                 id: newOrder.id as string,
-                user_id: BigInt(2),
+                user_id: '1',
                 status: 'test2',
             } as Order)
         })
@@ -61,11 +61,11 @@ describe('Test CRUD methods',() => {
         })
         it('Should update Order with specified ID',async () => {
             const editOrder = await store.edit(order.id as string,{
-                user_id: BigInt(3),
+                user_id: '1',
                 status: 'editstatus'
             })
             expect(editOrder.id).toBe(order.id)
-            expect(editOrder.user_id).toBe(BigInt(3))
+            expect(editOrder.user_id).toBe('1')
             expect(editOrder.status).toBe('editstatus')
             
         })
@@ -75,4 +75,4 @@ describe('Test CRUD methods',() => {
             
         })
     })
-})*/
+})
