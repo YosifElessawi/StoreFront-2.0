@@ -2,7 +2,6 @@ import express, { Application, Request, Response } from 'express'
 import morgan from 'morgan'
 import * as dotenv from 'dotenv'
 import routes from './routes/index'
-import { json } from 'body-parser'
 
 dotenv.config()
 
