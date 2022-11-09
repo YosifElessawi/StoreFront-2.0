@@ -2,13 +2,11 @@
 
 
 ## Technologies
-
 - Postgres for the database
-- Node/Express for the application logic
-- dotenv from npm for managing environment variables
-- db-migrate from npm for migrations
-- jsonwebtoken from npm for working with JWTs
-- jasmine from npm for testing
+- Node/Express 
+- dotenv for managing environment variables
+- jsonwebtoken 
+- jasmine for testing
 
 ## Setup
 - Express port : 3000
@@ -21,13 +19,10 @@
 
 2)
     - "npm run dev" will run the server on the mentioned port
-    - Endpoints can be accessed all mention in REQUIRMENTS file
+    - Endpoints can be accessed all mentioned in REQUIRMENTS file
 
 3)
     - I personally used postman to test endpoints and routes with CRUD operations
 
 4)
     - Testing can be done by "npm run test"
-
-5) 
-    - lint and prettier are also configured with the project check scripts in json file. 
