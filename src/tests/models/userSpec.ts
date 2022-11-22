@@ -35,7 +35,7 @@ describe('Test ALL users methods', async () => {
   })
 
   //Test logic of methods
-  describe('Test CRUD methods', () => {
+  describe('Test Users CRUD methods ', () => {
     describe('Methods should exist test', () => {
       it('Should have index method', () => {
         expect(store.index).toBeDefined()

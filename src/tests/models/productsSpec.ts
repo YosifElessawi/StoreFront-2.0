@@ -4,7 +4,7 @@ import Client from '../../database'
 const store = new ProductStore()
 
 //Test logic of methods
-describe('Test CRUD methods for Products', () => {
+describe('Test Products CRUD methods for', () => {
   describe('Methods should exist test', () => {
     it('Should have index method', () => {
       expect(store.index).toBeDefined()

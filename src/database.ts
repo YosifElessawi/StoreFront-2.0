@@ -7,7 +7,6 @@ const { POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_T
   process.env
 
 let client = new Pool()
-console.log(ENV)
 
 if (ENV === 'dev') {
   client = new Pool({
