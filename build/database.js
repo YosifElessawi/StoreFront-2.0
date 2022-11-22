@@ -8,7 +8,9 @@ var pg_1 = require("pg");
 dotenv_1.default.config();
 var _a = process.env, POSTGRES_HOST = _a.POSTGRES_HOST, POSTGRES_DB = _a.POSTGRES_DB, POSTGRES_USER = _a.POSTGRES_USER, POSTGRES_PASSWORD = _a.POSTGRES_PASSWORD, POSTGRES_TEST_DB = _a.POSTGRES_TEST_DB, ENV = _a.ENV;
 var client = new pg_1.Pool();
+console.log(ENV);
 if (ENV === 'dev') {
+    console.log('gwa dev');
     client = new pg_1.Pool({
         host: POSTGRES_HOST,
         database: POSTGRES_DB,
@@ -17,6 +19,7 @@ if (ENV === 'dev') {
     });
 }
 if (ENV === 'test') {
+    console.log('gwa test');
     client = new pg_1.Pool({
         host: POSTGRES_HOST,
         database: POSTGRES_TEST_DB,

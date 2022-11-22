@@ -7,8 +7,10 @@ const { POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_T
   process.env
 
 let client = new Pool()
+console.log(ENV)
 
 if (ENV === 'dev') {
+  console.log('gwa dev')
   client = new Pool({
     host: POSTGRES_HOST,
     database: POSTGRES_DB,
@@ -18,6 +20,7 @@ if (ENV === 'dev') {
 }
 
 if (ENV === 'test') {
+  console.log('gwa test')
   client = new Pool({
     host: POSTGRES_HOST,
     database: POSTGRES_TEST_DB,

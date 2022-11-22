@@ -1,5 +1,5 @@
-CREATE TABLE orders (
-    id SERIAL PRIMARY  KEY,
-    user_id BIGINT REFERENCES users(id),
-    order_status VARCHAR(50)
+CREATE TABLE products(
+    id SERIAL PRIMARY KEY,
+    pname VARCHAR(50),
+    price float
 );

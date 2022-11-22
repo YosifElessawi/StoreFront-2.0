@@ -41,7 +41,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var order_1 = require("../../models/order");
 var database_1 = __importDefault(require("../../database"));
+var user_1 = require("../../models/user");
 var store = new order_1.OrderStore();
+var userStore = new user_1.UserStore();
 //Test logic of methods
 describe('Test Orders CRUD methods', function () {
     describe('Methods should exist test', function () {
@@ -66,12 +68,22 @@ describe('Test Orders CRUD methods', function () {
             user_id: '1',
             status: 'test'
         };
+        var user = {
+            firstname: 'test',
+            lastname: 'user',
+            email: 'testuser@test.com',
+            password: 'testpass'
+        };
         beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () {
-            var newOrder;
+            var newuser, newOrder;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, store.create(order)];
+                    case 0: return [4 /*yield*/, userStore.create(user)];
                     case 1:
+                        newuser = _a.sent();
+                        user.id = newuser.id;
+                        return [4 /*yield*/, store.create(order)];
+                    case 2:
                         newOrder = _a.sent();
                         order.id = newOrder.id;
                         return [2 /*return*/];

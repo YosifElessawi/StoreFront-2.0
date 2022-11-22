@@ -99,11 +99,12 @@ var OrderStore = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        sql = 'INSERT INTO orders (user_id, order_status) VALUES($1, $2) RETURNING *';
+                        sql = 'INSERT INTO orders (status,user_id) VALUES($1, $2) RETURNING *';
                         return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         conn = _a.sent();
-                        return [4 /*yield*/, conn.query(sql, [o.user_id, o.status])];
+                        console.log(o.user_id);
+                        return [4 /*yield*/, conn.query(sql, [o.status, o.user_id])];
                     case 2:
                         result = _a.sent();
                         order = result.rows[0];
@@ -178,11 +179,9 @@ var OrderStore = /** @class */ (function () {
                         return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         conn = _a.sent();
-                        console.log('hena');
                         return [4 /*yield*/, conn.query(sql, [productId, orderId, quantity])];
                     case 2:
                         result = _a.sent();
-                        console.log('msh hena');
                         order = result.rows[0];
                         conn.release();
                         return [2 /*return*/, order];

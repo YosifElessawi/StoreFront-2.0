@@ -39,11 +39,11 @@ export class OrderStore {
 
   async create(o: Order): Promise<Order> {
     try {
-      const sql = 'INSERT INTO orders (user_id, order_status) VALUES($1, $2) RETURNING *'
+      const sql = 'INSERT INTO orders (status,user_id) VALUES($1, $2) RETURNING *'
       const conn = await Client.connect()
 
-      const result = await conn.query(sql, [o.user_id, o.status])
-
+      console.log(o.user_id)
+      const result = await conn.query(sql, [o.status, o.user_id])
       const order = result.rows[0]
 
       conn.release()
@@ -93,9 +93,7 @@ export class OrderStore {
       const sql =
         'INSERT INTO products_orders (product_id, order_id,quantity) VALUES($1, $2, $3) RETURNING *'
       const conn = await Client.connect()
-      console.log('hena')
       const result = await conn.query(sql, [productId, orderId, quantity])
-      console.log('msh hena')
       const order = result.rows[0]
 
       conn.release()

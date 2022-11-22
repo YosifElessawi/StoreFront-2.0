@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import * as handlers from '../../controllers/order.controller'
+import * as handlers from '../../controllers/orders.controller'
 import authMiddleware from '../../middleware/auth.middleware'
 
 const route = Router()

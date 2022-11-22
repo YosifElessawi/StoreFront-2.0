@@ -1,6 +1,8 @@
 import { Order, OrderStore } from '../../models/order'
 import Client from '../../database'
+import { User, UserStore } from '../../models/user'
 const store = new OrderStore()
+const userStore = new UserStore()
 
 //Test logic of methods
 describe('Test Orders CRUD methods', () => {
@@ -26,7 +28,15 @@ describe('Test Orders CRUD methods', () => {
       user_id: '1',
       status: 'test'
     }
+    const user: User = {
+      firstname: 'test',
+      lastname: 'user',
+      email: 'testuser@test.com',
+      password: 'testpass'
+    }
     beforeAll(async () => {
+      const newuser: User = await userStore.create(user)
+      user.id = newuser.id
       const newOrder: Order = await store.create(order)
       order.id = newOrder.id
     })
